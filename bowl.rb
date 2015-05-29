@@ -8,3 +8,9 @@
 
 # features
 # as a bowler I want to have a name?
+
+
+class Bowl
+
+
+end
