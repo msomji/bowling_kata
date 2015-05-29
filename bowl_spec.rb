@@ -6,6 +6,10 @@ describe "Bowl" do
     expect(Bowl.new).to be_a Bowl
   end
 
+  it "should have a score of 0 when a new game is created" do
+    expect(Bowl.new.score).to eq(0)
+  end
+
 
 
 
