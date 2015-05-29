@@ -53,6 +53,12 @@ describe "Bowl" do
         expect(game.score_board.length).to eq(4)
         expect(game.score_board).to eq([[3,3],[3,3],[3,3],[3,3]])
       end
+    it "should not allow the user to bowl if 10 turns have already been played" do
+        10.times do
+          game.bowl(0,0)
+        end
+        expect(game.bowl(3,3)).to eq("The Game is over buddy! Make a new Game")
+      end
   end
 
 

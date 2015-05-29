@@ -21,16 +21,24 @@ class Bowl
 
   def bowl(trial1, trial2)
     if trial2 + trial1 <= 10 && trial1 >= 0 && trial2 >= 0
-      if trial1 == 10
-        @score_board << [trial1, trial2]
-        "STRIKE!"
-      elsif trial1 + trial2 == 10
-        @score_board << [trial1, trial2]
-        "SPARE! #{trial1} / #{trial2}"
+      if @frame < 10
+        if trial1 == 10
+          @score_board << [trial1, trial2]
+          @frame += 1
+          "STRIKE!"
+        elsif trial1 + trial2 == 10
+          @score_board << [trial1, trial2]
+          @frame += 1
+          "SPARE! #{trial1} / #{trial2}"
+        else
+          @score_board << [trial1, trial2]
+          @frame += 1
+          "#{trial1} / #{trial2}"
+        end
       else
-        @score_board << [trial1, trial2]
-      "#{trial1} / #{trial2}"
-    end
+        "The Game is over buddy! Make a new Game"
+
+      end
     
     else
       "try again! you can knock out a max of only 10 pins per turn and positive numbers"
