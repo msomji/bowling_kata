@@ -48,8 +48,14 @@ class Bowl
 
   def score 
     @score = 0
+    next_frame = 0
     @score_board.each do |round|
-      @score += round[0] + round[1] 
+      next_frame +=1
+      if round[0] + round[1] == 10
+        @score += 10 + @score_board[next_frame][0]
+      else
+        @score += round[0] + round[1] 
+      end
     end
     @score
   end

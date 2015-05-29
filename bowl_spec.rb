@@ -66,6 +66,13 @@ describe "Bowl" do
           game.bowl(3,2)
           expect(game.score).to eq(5)
         end
+
+    it "should take into consideration the spare calculations" do
+
+          game.bowl(5,5)
+          game.bowl(3,2)
+          expect(game.score).to eq(18)
+        end
   end
 
 
