@@ -10,7 +10,9 @@ describe "Bowl" do
     expect(Bowl.new.score).to eq(0)
   end
 
-
+  it "Should start the game at frame 0" do
+    expect(Bowl.new.frame).to eq(0)
+  end
 
 
 
