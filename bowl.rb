@@ -23,6 +23,8 @@ class Bowl
     if trial2 + trial1 <= 10 && trial1 >= 0 && trial2 >= 0
       if trial1 == 10
         "STRIKE!"
+      elsif trial1 + trial2 == 10
+        "SPARE! #{trial1} / #{trial2}"
       else
       "#{trial1} / #{trial2}"
     end
