@@ -51,7 +51,9 @@ class Bowl
     next_frame = 0
     @score_board.each do |round|
       next_frame +=1
-      if round[0] + round[1] == 10
+      if round[0] == 10 #if it is a strike
+          @score += round[0] + @score_board[next_frame][0] + @score_board[next_frame][1]
+      elsif round[0] + round[1] == 10 #if spare
         @score += 10 + @score_board[next_frame][0]
       else
         @score += round[0] + round[1] 

@@ -33,46 +33,50 @@ describe "Bowl" do
     end
 
     it "should return what the user input" do 
-        expect(game.bowl(3,3)).to eq("3 / 3")
+      expect(game.bowl(3,3)).to eq("3 / 3")
       end
 
     it "should tell the user if there was a strike" do
-         expect(game.bowl(10,0)).to eq("STRIKE!")
+      expect(game.bowl(10,0)).to eq("STRIKE!")
       end
     it "should tell the user if there was a spare" do
-         expect(game.bowl(5,5)).to eq("SPARE! 5 / 5")
+      expect(game.bowl(5,5)).to eq("SPARE! 5 / 5")
       end
     it "should store the score on the board" do
-        game.bowl(3,3)
-        expect(game.score_board).to eq([[3,3]])
+      game.bowl(3,3)
+      expect(game.score_board).to eq([[3,3]])
       end
     it "should store every frame within its own array" do 
-        4.times do
-          game.bowl(3,3)
-        end
-        expect(game.score_board.length).to eq(4)
-        expect(game.score_board).to eq([[3,3],[3,3],[3,3],[3,3]])
+      4.times do
+        game.bowl(3,3)
       end
+      expect(game.score_board.length).to eq(4)
+      expect(game.score_board).to eq([[3,3],[3,3],[3,3],[3,3]])
+    end
     it "should not allow the user to bowl if 10 turns have already been played" do
-        10.times do
-          game.bowl(0,0)
-        end
-        expect(game.bowl(3,3)).to eq("The Game is over buddy! Make a new Game")
+      10.times do
+        game.bowl(0,0)
       end
+      expect(game.bowl(3,3)).to eq("The Game is over buddy! Make a new Game")
+    end
   end
 
   describe "#score" do
     it "should sum the total of a frame and return the score to the user" do
-          game.bowl(3,2)
-          expect(game.score).to eq(5)
-        end
+      game.bowl(3,2)
+      expect(game.score).to eq(5)
+    end
 
     it "should take into consideration the spare calculations" do
-
-          game.bowl(5,5)
-          game.bowl(3,2)
-          expect(game.score).to eq(18)
-        end
+      game.bowl(5,5)
+      game.bowl(3,2)
+      expect(game.score).to eq(18)
+    end
+    it "should take into account strike and appropriate calculations" do
+      game.bowl(10,0)
+      game.bowl(3,2)
+      expect(game.score).to eq(20)
+    end
   end
 
 
