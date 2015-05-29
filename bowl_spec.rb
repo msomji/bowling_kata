@@ -15,7 +15,7 @@ describe "Bowl" do
   end
 
   it "Should have an empty score board at creation" do
-    expect(game.score_board).to eq([])
+    expect(game.score_board).to eq([[0,0,0]])
   end
 
   describe "#bowl" do
@@ -44,14 +44,14 @@ describe "Bowl" do
       end
     it "should store the score on the board" do
       game.bowl(3,3)
-      expect(game.score_board).to eq([[3,3]])
+      expect(game.score_board).to eq([[3,3],[0,0,0]])
       end
     it "should store every frame within its own array" do 
       4.times do
         game.bowl(3,3)
       end
-      expect(game.score_board.length).to eq(4)
-      expect(game.score_board).to eq([[3,3],[3,3],[3,3],[3,3]])
+      expect(game.score_board.length).to eq(5)
+      expect(game.score_board).to eq([[3,3],[3,3],[3,3],[3,3],[0,0,0]])
     end
     it "should not allow the user to bowl if 10 turns have already been played" do
       10.times do
@@ -82,6 +82,10 @@ describe "Bowl" do
       game.bowl(5,5)
       game.bowl(3,2)
       expect(game.score).to eq(38)
+    end
+    it "should calculate score after a strike accurately even if next frame is not populated" do
+      game.bowl(5,5)
+      expect(game.score).to eq(10)
     end
   end
 

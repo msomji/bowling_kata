@@ -16,22 +16,22 @@ class Bowl
   def initialize
     @score = 0
     @frame = 0
-    @score_board = []
+    @score_board = [[0,0,0]]
   end
 
   def bowl(trial1, trial2)
     if trial2 + trial1 <= 10 && trial1 >= 0 && trial2 >= 0
       if @frame < 10
         if trial1 == 10
-          @score_board << [trial1, trial2]
+          @score_board.insert(-2, [trial1, trial1])
           @frame += 1
           "STRIKE!"
         elsif trial1 + trial2 == 10
-          @score_board << [trial1, trial2]
+          @score_board.insert(-2, [trial1, trial2])
           @frame += 1
           "SPARE! #{trial1} / #{trial2}"
         else
-          @score_board << [trial1, trial2]
+          @score_board.insert(-2, [trial1, trial2])
           @frame += 1
           "#{trial1} / #{trial2}"
         end
