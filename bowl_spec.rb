@@ -31,6 +31,10 @@ describe "Bowl" do
     it "should not accept negative integer arguments" do
       expect(game.bowl(-3,4)).to eq("try again! you can knock out a max of only 10 pins per turn and positive numbers")
     end
+
+    it "should return what the user input" do 
+        expect(game.bowl(3,3)).to eq("3 / 3")
+      end
   end
 
 
