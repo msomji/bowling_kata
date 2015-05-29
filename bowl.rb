@@ -11,11 +11,12 @@
 
 
 class Bowl
-  attr_reader :score, :frame
+  attr_reader :score, :frame, :score_board
 
   def initialize
     @score = 0
     @frame = 0
+    @score_board = []
   end
 
 
