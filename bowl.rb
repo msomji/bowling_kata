@@ -19,5 +19,8 @@ class Bowl
     @score_board = []
   end
 
+  def bowl(trial1, trial2)
+
+  end
 
 end
