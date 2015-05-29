@@ -23,6 +23,10 @@ describe "Bowl" do
     it "should must accept two integers as aguments for number of pins dropped" do
       expect{ Bowl.new.bowl(2) }.to raise_error(ArgumentError)
     end
+
+    it "should accept 2 integers that are both positive and add up to less than or equal to 10" do
+      expect(Bowl.new.bowl(2,12)).to eq("try again! you can knock out a max of only 10 pins per turn")
+    end
   end
 
 
