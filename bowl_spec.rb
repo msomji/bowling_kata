@@ -14,6 +14,9 @@ describe "Bowl" do
     expect(Bowl.new.frame).to eq(0)
   end
 
+  it "Should have an empty score board at creation" do
+    expect(Bowl.new.score_board).to eq([])
+  end
 
 
 
