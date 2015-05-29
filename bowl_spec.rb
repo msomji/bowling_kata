@@ -87,6 +87,12 @@ describe "Bowl" do
       game.bowl(5,5)
       expect(game.score).to eq(10)
     end
+    
+    it "should not break on strike calculations if the next frame is still empty" do
+      game.bowl(1,0)
+      game.bowl(10,0)
+      expect(game.score).to eq(11)
+    end
   end
 
 
