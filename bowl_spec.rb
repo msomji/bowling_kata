@@ -77,6 +77,12 @@ describe "Bowl" do
       game.bowl(3,2)
       expect(game.score).to eq(20)
     end
+    it "should be able to calculate mixture of strikes and spares correctly" do
+      game.bowl(10,0)
+      game.bowl(5,5)
+      game.bowl(3,2)
+      expect(game.score).to eq(38)
+    end
   end
 
 
