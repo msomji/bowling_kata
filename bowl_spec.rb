@@ -46,6 +46,13 @@ describe "Bowl" do
         game.bowl(3,3)
         expect(game.score_board).to eq([[3,3]])
       end
+    it "should store every frame within its own array" do 
+        4.times do
+          game.bowl(3,3)
+        end
+        expect(game.score_board.length).to eq(4)
+        expect(game.score_board).to eq([[3,3],[3,3],[3,3],[3,3]])
+      end
   end
 
 
