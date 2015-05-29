@@ -46,4 +46,12 @@ class Bowl
     end
   end
 
+  def score 
+    @score = 0
+    @score_board.each do |round|
+      @score += round[0] + round[1] 
+    end
+    @score
+  end
+
 end

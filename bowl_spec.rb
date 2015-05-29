@@ -61,6 +61,13 @@ describe "Bowl" do
       end
   end
 
+  describe "#score" do
+    it "should sum the total of a frame and return the score to the user" do
+          game.bowl(3,2)
+          expect(game.score).to eq(5)
+        end
+  end
+
 
 
   
