@@ -25,7 +25,11 @@ describe "Bowl" do
     end
 
     it "should accept 2 integers that are both positive and add up to less than or equal to 10" do
-      expect(game.bowl(2,12)).to eq("try again! you can knock out a max of only 10 pins per turn")
+      expect(game.bowl(2,12)).to eq("try again! you can knock out a max of only 10 pins per turn and positive numbers")
+    end
+
+    it "should not accept negative integer arguments" do
+      expect(game.bowl(-3,4)).to eq("try again! you can knock out a max of only 10 pins per turn and positive numbers")
     end
   end
 
