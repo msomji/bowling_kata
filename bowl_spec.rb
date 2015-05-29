@@ -35,6 +35,10 @@ describe "Bowl" do
     it "should return what the user input" do 
         expect(game.bowl(3,3)).to eq("3 / 3")
       end
+
+    it "should tell the user if there was a strike" do
+         expect(game.bowl(10,0)).to eq("STRIKE!")
+      end
   end
 
 

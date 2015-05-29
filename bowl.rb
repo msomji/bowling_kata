@@ -21,7 +21,11 @@ class Bowl
 
   def bowl(trial1, trial2)
     if trial2 + trial1 <= 10 && trial1 >= 0 && trial2 >= 0
+      if trial1 == 10
+        "STRIKE!"
+      else
       "#{trial1} / #{trial2}"
+    end
     
     else
       "try again! you can knock out a max of only 10 pins per turn and positive numbers"
