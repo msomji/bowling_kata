@@ -42,6 +42,10 @@ describe "Bowl" do
     it "should tell the user if there was a spare" do
          expect(game.bowl(5,5)).to eq("SPARE! 5 / 5")
       end
+    it "should store the score on the board" do
+        game.bowl(3,3)
+        expect(game.score_board).to eq([[3,3]])
+      end
   end
 
 
