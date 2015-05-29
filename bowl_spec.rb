@@ -18,6 +18,12 @@ describe "Bowl" do
     expect(Bowl.new.score_board).to eq([])
   end
 
+  describe "#bowl" do
+
+    it "should must accept two integers as aguments for number of pins dropped" do
+      expect{ Bowl.new.bowl(2) }.to raise_error(ArgumentError)
+    end
+  end
 
 
 
