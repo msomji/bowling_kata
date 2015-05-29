@@ -83,7 +83,7 @@ describe "Bowl" do
       game.bowl(3,2)
       expect(game.score).to eq(38)
     end
-    it "should calculate score after a strike accurately even if next frame is not populated" do
+    it "should calculate score after a spare accurately even if next frame is not populated" do
       game.bowl(5,5)
       expect(game.score).to eq(10)
     end
