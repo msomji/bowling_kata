@@ -95,6 +95,21 @@ describe "Bowl" do
     end
   end
 
+  describe "#reset" do
+
+    it "should allow the user to reset their current game" do
+      expect(game.frame).to eq(0)
+      game.bowl(3,3)
+      expect(game.frame).to eq(1)
+      game.bowl(10,0)
+      expect(game.frame).to eq(2)
+      expect(game.score_board.length).to eq(3)
+      game.reset
+      expect(game.frame).to eq(0)
+      expect(game.score_board.length).to eq(1)
+      expect(game.score).to eq(0)
+    end
+  end
 
 
   

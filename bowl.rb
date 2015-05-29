@@ -62,4 +62,10 @@ class Bowl
     @score
   end
 
+  def reset
+    @score = 0
+    @frame = 0
+    @score_board = [[0,0,0]]
+  end
+
 end
