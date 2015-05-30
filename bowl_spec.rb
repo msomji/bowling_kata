@@ -64,6 +64,14 @@ describe "Bowl" do
         game.bowl(3,2)
       end
       expect(game.bowl(3,2)).to eq("3 / 2 | Game Over")
+      expect(game.score).to eq(50)
+    end
+    it "should calculate the score on tenth frame correctly when no spare or strike" do
+      9.times do 
+        game.bowl(3,2)
+      end
+      expect(game.bowl(3,2)).to eq("3 / 2 | Game Over")
+      expect(game.score).to eq(50)
     end
   end
 
