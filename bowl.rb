@@ -21,9 +21,9 @@ class Bowl
 
   def bowl(trial1, trial2)
     if trial2 + trial1 <= 10 && trial1 >= 0 && trial2 >= 0
-      if @frame < 10
+      if @frame < 9
         if trial1 == 10
-          @score_board.insert(-2, [trial1, trial1])
+          @score_board.insert(-2, [trial1, trial2])
           @frame += 1
           "STRIKE!"
         elsif trial1 + trial2 == 10
@@ -35,6 +35,11 @@ class Bowl
           @frame += 1
           "#{trial1} / #{trial2}"
         end
+
+      elsif @frame == 9
+          @score_board.insert(-2, [trial1, trial2])
+          @frame += 1
+          "#{trial1} / #{trial2} | Game Over"
       else
         "The Game is over buddy! Make a new Game"
 

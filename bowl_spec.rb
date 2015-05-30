@@ -59,6 +59,12 @@ describe "Bowl" do
       end
       expect(game.bowl(3,3)).to eq("The Game is over buddy! Make a new Game")
     end
+    it "should tell the user that the game is over after the end of the tenth frame" do
+      9.times do 
+        game.bowl(3,2)
+      end
+      expect(game.bowl(3,2)).to eq("3 / 2 | Game Over")
+    end
   end
 
   describe "#score" do
