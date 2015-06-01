@@ -85,6 +85,13 @@ describe "Bowl" do
       game.bowl(10,0)
       expect(game.bonus(5,5)).to eq("SPARE! 5 / 5 | Game Over")
     end
+    it "should tell the user they have one more bonus roll if they had got another strike" do
+      9.times do
+        game.bowl(3,2)
+      end
+      game.bowl(10,0)
+      expect(game.bonus(10,0)).to eq("SRIKE | One more Bonus roll!")
+    end
 
   end
 

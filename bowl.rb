@@ -63,7 +63,11 @@ class Bowl
 
   def bonus(bowl1, bowl2)
     if @frame == 10 && bowl2 + bowl1 <= 10 && bowl1 >= 0 && bowl2 >= 0
-      if bowl1 + bowl2 == 10
+      if bowl1 == 10
+        @score_board.insert(-2, [bowl1, 0])
+          @frame += 1
+          "SRIKE | One more Bonus roll!"
+      elsif bowl1 + bowl2 == 10
           @score_board.insert(-2, [bowl1, bowl2])
           @frame += 1
           "SPARE! #{bowl1} / #{bowl2} | Game Over"
