@@ -78,6 +78,13 @@ describe "Bowl" do
     it "should tell the user that it doesnt have any bonus rounds unless they are on the 10th frame" do 
       expect(game.bonus(3,3)).to eq("No bonus rounds for you sir")
     end
+    it "should tell the user that the game is over if they do not get strike" do
+      9.times do
+        game.bowl(3,2)
+      end
+      game.bowl(10,0)
+      expect(game.bonus(5,5)).to eq("SPARE! 5 / 5 | Game Over")
+    end
 
   end
 

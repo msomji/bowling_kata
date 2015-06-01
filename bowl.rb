@@ -38,7 +38,7 @@ class Bowl
 
       elsif @frame == 9
         if trial1 == 10
-          @score_board.insert(-2, [trial1, trial2])
+          @score_board.insert(-2, [trial1, 0])
           @frame += 1
           "STRIKE! | You have two more bonus bowl! Use the bonus method to enter your bonus pins"
         elsif trial1 + trial2 == 10
@@ -62,10 +62,16 @@ class Bowl
   end
 
   def bonus(bowl1, bowl2)
-    if @frame == 10
-      @score_board.insert(-2, [trial1, trial2])
-      @frame += 1
-      "#{trial1} / #{trial2} | Game Over"
+    if @frame == 10 && bowl2 + bowl1 <= 10 && bowl1 >= 0 && bowl2 >= 0
+      if bowl1 + bowl2 == 10
+          @score_board.insert(-2, [bowl1, bowl2])
+          @frame += 1
+          "SPARE! #{bowl1} / #{bowl2} | Game Over"
+      else
+        @score_board.insert(-2, [bowl1, bowl2])
+        @frame += 1
+        "#{bowl1} / #{bowl2} | Game Over"
+      end
     else
       "No bonus rounds for you sir"
     end
