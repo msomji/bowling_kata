@@ -21,7 +21,7 @@ class Bowl
   end
 
   def instructions
-    puts "Instructions: 
+     "Instructions: 
       You have played bowling before! here are a couple methods to help you around this game!
       To bowl - bowl(first_try, second_try)
       To bowl bonus frames(10th frame) - bonus(first_try, second_try)
@@ -30,7 +30,7 @@ class Bowl
       To get instructions again - instructions
     "
   end
-  
+
   def bowl(trial1, trial2)
     if trial2 + trial1 <= 10 && trial1 >= 0 && trial2 >= 0
       user_updates(trial1,trial2)

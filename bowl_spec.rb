@@ -190,4 +190,17 @@ describe "Bowl" do
       expect(game.score).to eq(0)
     end
   end
+
+  describe "#instructions" do
+    it "should give the user the instructions of the different methods" do
+      expect(game.instructions).to eq("Instructions: 
+      You have played bowling before! here are a couple methods to help you around this game!
+      To bowl - bowl(first_try, second_try)
+      To bowl bonus frames(10th frame) - bonus(first_try, second_try)
+      To check Score - score
+      To reset game - reset
+      To get instructions again - instructions
+    ")
+    end
+  end
 end
