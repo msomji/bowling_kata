@@ -24,40 +24,31 @@ class Bowl
       if @frame < 9
         if trial1 == 10
           update_score_board(trial1,0)
-          @frame += 1
           "STRIKE!"
         elsif trial1 + trial2 == 10
           update_score_board(trial1,trial2)
-          @frame += 1
           "SPARE! #{trial1} / #{trial2}"
         else
           update_score_board(trial1,trial2)
-          @frame += 1
           "#{trial1} / #{trial2}"
         end
 
       elsif @frame == 9
         if trial1 == 10
           update_score_board(trial1,0)
-          @frame += 1
           "STRIKE! | You have two more bonus bowl! Use the bonus method to enter your bonus pins"
         elsif trial1 + trial2 == 10
-          update_score_board(trial1,trial2)
-          @frame += 1
+          update_score_board(trial1,trial2)  
           "SPARE! #{trial1} / #{trial2} | You have one more bonus bowl! Use the bonus method to enter your bonus pins"
         else
-          update_score_board(trial1,trial2)
-          @frame += 1
+          update_score_board(trial1,trial2)     
           "#{trial1} / #{trial2} | Game Over"
         end
       else
         "The Game is over buddy! Make a new Game"
-
       end
-    
     else
       "try again! you can knock out a max of only 10 pins per turn and positive numbers"
-
     end
   end
 
@@ -65,31 +56,25 @@ class Bowl
     if @frame == 10 && bowl2 + bowl1 <= 10 && bowl1 >= 0 && bowl2 >= 0 && @score_board[-2][0] == 10 
       if bowl1 == 10
         update_score_board(bowl1,0)
-          @frame += 1
           "SRIKE | One more Bonus roll!"
       elsif bowl1 + bowl2 == 10
-          update_score_board(bowl1,bowl2)
-          @frame += 1
+          update_score_board(bowl1,bowl2)    
           "SPARE! #{bowl1} / #{bowl2} | Game Over"
       else
-        update_score_board(bowl1,bowl2)
-        @frame += 1
+        update_score_board(bowl1,bowl2)      
         "#{bowl1} / #{bowl2} | Game Over"
       end
     elsif @frame == 10 && bowl2 + bowl1 <= 10 && bowl1 >= 0 && bowl2 >= 0 && @score_board[-2][0] != 10 && @score_board[-2][0] + @score_board[-2][1] == 10
       if bowl1 == 10
         update_score_board(bowl1,0)
-          @frame += 1
           "SRIKE | Game Over"
       else
-        update_score_board(bowl1,0)
-        @frame += 1
+        update_score_board(bowl1,0)    
         "#{bowl1} / 0 | Game Over"
       end
 
     elsif @frame == 11 && bowl1 >= 0 && @score_board[-2][0] == 10 && @score_board[-3][0] == 10  
       update_score_board(bowl1,0)
-      @frame += 1
       "SRIKE | Awesome!! | Game Over!"
     else
       "No bonus rounds for you sir"
@@ -122,6 +107,7 @@ class Bowl
 
   def update_score_board(trial1, trial2)
     @score_board.insert(-2, [trial1, trial2])
+    @frame += 1
   end
 
 end
