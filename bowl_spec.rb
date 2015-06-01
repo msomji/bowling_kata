@@ -159,6 +159,20 @@ describe "Bowl" do
       expect(game.bonus(10,0)).to eq("No bonus rounds for you sir")
       expect(game.bowl(3,3)).to eq("The Game is over buddy! Make a new Game")
     end
+    it "should tell the user the game is over after their first bonus bowl if they got a spare on their 10th frame even if they get a strike on last roll" do
+      9.times do 
+        game.bowl(3,3)
+      end
+      game.bowl(5,5)
+      expect(game.bonus(10,0)).to eq("SRIKE | Game Over")
+    end
+    it "should tell the user the game is over after their first bonus bowl if they got a spare on their 10th frame" do
+      9.times do 
+        game.bowl(3,3)
+      end
+      game.bowl(5,5)
+      expect(game.bonus(5,0)).to eq("5 / 0 | Game Over")
+    end
   end
 
   describe "#reset" do

@@ -62,7 +62,7 @@ class Bowl
   end
 
   def bonus(bowl1, bowl2)
-    if @frame == 10 && bowl2 + bowl1 <= 10 && bowl1 >= 0 && bowl2 >= 0
+    if @frame == 10 && bowl2 + bowl1 <= 10 && bowl1 >= 0 && bowl2 >= 0 && @score_board[-2][0] == 10 
       if bowl1 == 10
         @score_board.insert(-2, [bowl1, 0])
           @frame += 1
@@ -76,10 +76,23 @@ class Bowl
         @frame += 1
         "#{bowl1} / #{bowl2} | Game Over"
       end
+    elsif @frame == 10 && bowl2 + bowl1 <= 10 && bowl1 >= 0 && bowl2 >= 0 && @score_board[-2][0] != 10 && @score_board[-2][0] + @score_board[-2][1] == 10
+      if bowl1 == 10
+        @score_board.insert(-2, [bowl1, 0])
+          @frame += 1
+          "SRIKE | Game Over"
+      else
+        @score_board.insert(-2, [bowl1, 0])
+        @frame += 1
+        "#{bowl1} / 0 | Game Over"
+      end
+
     elsif @frame == 11 && bowl1 >= 0 && @score_board[-2][0] == 10 && @score_board[-3][0] == 10  
       @score_board.insert(-2, [bowl1, 0])
       @frame += 1
       "SRIKE | Awesome!! | Game Over!"
+    
+
     else
      
       "No bonus rounds for you sir"
