@@ -112,7 +112,14 @@ describe "Bowl" do
         game.bowl(3,3)
       end
       
-      expect(game.bowl(5,5)).to eq("SPARE! 5 / 5 | You have one more bonus bowl! use the bonus method to enter your bonus pins")
+      expect(game.bowl(5,5)).to eq("SPARE! 5 / 5 | You have one more bonus bowl! Use the bonus method to enter your bonus pins")
+    end 
+    it "should tell the user that they have 2 more bonus bowls when they get a strike on their 10th frame" do
+      9.times do 
+        game.bowl(3,3)
+      end
+      
+      expect(game.bowl(10,0)).to eq("STRIKE! | You have two more bonus bowl! Use the bonus method to enter your bonus pins")
     end 
   end
 
