@@ -32,21 +32,21 @@ describe "Bowl" do
       expect(game.bowl(-3,4)).to eq("try again! you can knock out a max of only 10 pins per turn and positive numbers")
     end
 
-    it "should return what the user input" do 
+    it "should return what the user input" do
       expect(game.bowl(3,3)).to eq("3 / 3")
-      end
+    end
 
     it "should tell the user if there was a strike" do
       expect(game.bowl(10,0)).to eq("STRIKE!")
-      end
+    end
     it "should tell the user if there was a spare" do
       expect(game.bowl(5,5)).to eq("SPARE! 5 / 5")
-      end
+    end
     it "should store the score on the board" do
       game.bowl(3,3)
       expect(game.score_board).to eq([[3,3],[0,0,0]])
-      end
-    it "should store every frame within its own array" do 
+    end
+    it "should store every frame within its own array" do
       4.times do
         game.bowl(3,3)
       end
@@ -60,14 +60,14 @@ describe "Bowl" do
       expect(game.bowl(3,3)).to eq("The Game is over buddy! Make a new Game")
     end
     it "should tell the user that the game is over after the end of the tenth frame" do
-      9.times do 
+      9.times do
         game.bowl(3,2)
       end
       expect(game.bowl(3,2)).to eq("3 / 2 | Game Over")
       expect(game.score).to eq(50)
     end
     it "should calculate the score on tenth frame correctly when no spare or strike" do
-      9.times do 
+      9.times do
         game.bowl(3,2)
       end
       expect(game.bowl(3,2)).to eq("3 / 2 | Game Over")
@@ -75,7 +75,7 @@ describe "Bowl" do
     end
   end
   describe "#bonus" do
-    it "should tell the user that it doesnt have any bonus rounds unless they are on the 10th frame" do 
+    it "should tell the user that it doesnt have any bonus rounds unless they are on the 10th frame" do
       expect(game.bonus(3,3)).to eq("No bonus rounds for you sir")
     end
     it "should tell the user that the game is over if they do not get strike" do
@@ -121,28 +121,28 @@ describe "Bowl" do
       game.bowl(5,5)
       expect(game.score).to eq(10)
     end
-    
+
     it "should not break on strike calculations if the next frame is still empty" do
       game.bowl(1,0)
       game.bowl(10,0)
       expect(game.score).to eq(11)
     end
     it "should tell the user that they have 1 more bonus bowl when they get a spare on their 10th frame" do
-      9.times do 
+      9.times do
         game.bowl(3,3)
       end
-      
+
       expect(game.bowl(5,5)).to eq("SPARE! 5 / 5 | You have one more bonus bowl! Use the bonus method to enter your bonus pins")
-    end 
+    end
     it "should tell the user that they have 2 more bonus bowls when they get a strike on their 10th frame" do
-      9.times do 
+      9.times do
         game.bowl(3,3)
       end
-      
+
       expect(game.bowl(10,0)).to eq("STRIKE! | You have two more bonus bowl! Use the bonus method to enter your bonus pins")
-    end 
+    end
     it "should tell the user the game is over after their second bonus strike" do
-      9.times do 
+      9.times do
         game.bowl(3,3)
       end
       game.bowl(10,0)
@@ -150,7 +150,7 @@ describe "Bowl" do
       expect(game.bonus(10,0)).to eq("SRIKE | Awesome!! | Game Over!")
     end
     it "should tell the user the game is over after they run out of bonus bowls" do
-      9.times do 
+      9.times do
         game.bowl(3,3)
       end
       game.bowl(10,0)
@@ -160,14 +160,14 @@ describe "Bowl" do
       expect(game.bowl(3,3)).to eq("The Game is over buddy! Make a new Game")
     end
     it "should tell the user the game is over after their first bonus bowl if they got a spare on their 10th frame even if they get a strike on last roll" do
-      9.times do 
+      9.times do
         game.bowl(3,3)
       end
       game.bowl(5,5)
       expect(game.bonus(10,0)).to eq("SRIKE | Game Over")
     end
     it "should tell the user the game is over after their first bonus bowl if they got a spare on their 10th frame" do
-      9.times do 
+      9.times do
         game.bowl(3,3)
       end
       game.bowl(5,5)
@@ -190,7 +190,4 @@ describe "Bowl" do
       expect(game.score).to eq(0)
     end
   end
-
-
-  
 end
