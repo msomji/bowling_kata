@@ -107,6 +107,13 @@ describe "Bowl" do
       game.bowl(10,0)
       expect(game.score).to eq(11)
     end
+    it "should tell the user that they have 1 more bonus bowl when they get a spare on their 10th frame" do
+      9.times do 
+        game.bowl(3,3)
+      end
+      
+      expect(game.bowl(5,5)).to eq("SPARE! 5 / 5 | You have one more bonus bowl! use the bonus method to enter your bonus pins")
+    end 
   end
 
   describe "#reset" do

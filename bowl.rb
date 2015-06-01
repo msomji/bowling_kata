@@ -37,9 +37,15 @@ class Bowl
         end
 
       elsif @frame == 9
+        if trial1 + trial2 == 10
+          @score_board.insert(-2, [trial1, trial2])
+          @frame += 1
+          "SPARE! #{trial1} / #{trial2} | You have one more bonus bowl! use the bonus method to enter your bonus pins"
+        else
           @score_board.insert(-2, [trial1, trial2])
           @frame += 1
           "#{trial1} / #{trial2} | Game Over"
+        end
       else
         "The Game is over buddy! Make a new Game"
 
