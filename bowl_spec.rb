@@ -149,6 +149,16 @@ describe "Bowl" do
       game.bonus(10,0)
       expect(game.bonus(10,0)).to eq("SRIKE | Awesome!! | Game Over!")
     end
+    it "should tell the user the game is over after they run out of bonus bowls" do
+      9.times do 
+        game.bowl(3,3)
+      end
+      game.bowl(10,0)
+      game.bonus(10,0)
+      game.bonus(10,0)
+      expect(game.bonus(10,0)).to eq("No bonus rounds for you sir")
+      expect(game.bowl(3,3)).to eq("The Game is over buddy! Make a new Game")
+    end
   end
 
   describe "#reset" do

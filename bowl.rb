@@ -81,9 +81,7 @@ class Bowl
       @frame += 1
       "SRIKE | Awesome!! | Game Over!"
     else
-      p score_board.length
-      puts "frame"
-      p @frame
+     
       "No bonus rounds for you sir"
     end
   end 
