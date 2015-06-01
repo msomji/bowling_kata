@@ -76,7 +76,14 @@ class Bowl
         @frame += 1
         "#{bowl1} / #{bowl2} | Game Over"
       end
+    elsif @frame == 11 && bowl1 >= 0 && @score_board[-2][0] == 10 && @score_board[-3][0] == 10  
+      @score_board.insert(-2, [bowl1, 0])
+      @frame += 1
+      "SRIKE | Awesome!! | Game Over!"
     else
+      p score_board.length
+      puts "frame"
+      p @frame
       "No bonus rounds for you sir"
     end
   end 

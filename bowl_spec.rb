@@ -141,6 +141,14 @@ describe "Bowl" do
       
       expect(game.bowl(10,0)).to eq("STRIKE! | You have two more bonus bowl! Use the bonus method to enter your bonus pins")
     end 
+    it "should tell the user the game is over after their second bonus strike" do
+      9.times do 
+        game.bowl(3,3)
+      end
+      game.bowl(10,0)
+      game.bonus(10,0)
+      expect(game.bonus(10,0)).to eq("SRIKE | Awesome!! | Game Over!")
+    end
   end
 
   describe "#reset" do
