@@ -74,6 +74,12 @@ describe "Bowl" do
       expect(game.score).to eq(50)
     end
   end
+  describe "#bonus" do
+    it "should tell the user that it doesnt have any bonus rounds unless they are on the 10th frame" do 
+      expect(game.bonus(3,3)).to eq("No bonus rounds for you sir")
+    end
+
+  end
 
   describe "#score" do
     it "should sum the total of a frame and return the score to the user" do

@@ -61,6 +61,16 @@ class Bowl
     end
   end
 
+  def bonus(bowl1, bowl2)
+    if @frame == 10
+      @score_board.insert(-2, [trial1, trial2])
+      @frame += 1
+      "#{trial1} / #{trial2} | Game Over"
+    else
+      "No bonus rounds for you sir"
+    end
+  end 
+
   def score 
     @score = 0
     next_frame = 0
