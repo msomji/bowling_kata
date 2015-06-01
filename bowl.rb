@@ -21,32 +21,7 @@ class Bowl
 
   def bowl(trial1, trial2)
     if trial2 + trial1 <= 10 && trial1 >= 0 && trial2 >= 0
-      if @frame < 9
-        if trial1 == 10
-          update_score_board(trial1,0)
-          "STRIKE!"
-        elsif trial1 + trial2 == 10
-          update_score_board(trial1,trial2)
-          "SPARE! #{trial1} / #{trial2}"
-        else
-          update_score_board(trial1,trial2)
-          "#{trial1} / #{trial2}"
-        end
-
-      elsif @frame == 9
-        if trial1 == 10
-          update_score_board(trial1,0)
-          "STRIKE! | You have two more bonus bowl! Use the bonus method to enter your bonus pins"
-        elsif trial1 + trial2 == 10
-          update_score_board(trial1,trial2)  
-          "SPARE! #{trial1} / #{trial2} | You have one more bonus bowl! Use the bonus method to enter your bonus pins"
-        else
-          update_score_board(trial1,trial2)     
-          "#{trial1} / #{trial2} | Game Over"
-        end
-      else
-        "The Game is over buddy! Make a new Game"
-      end
+      user_updates(trial1,trial2)
     else
       "try again! you can knock out a max of only 10 pins per turn and positive numbers"
     end
@@ -86,9 +61,9 @@ class Bowl
     next_frame = 0
     @score_board.each do |round|
       next_frame +=1
-      if round[0] == 10 #if it is a strike
+      if round[0] == 10
           @score += round[0] + @score_board[next_frame][0] + @score_board[next_frame][1]
-      elsif round[0] + round[1] == 10 #if spare
+      elsif round[0] + round[1] == 10
         @score += 10 + @score_board[next_frame][0]
       else
         @score += round[0] + round[1] 
@@ -110,4 +85,40 @@ class Bowl
     @frame += 1
   end
 
+  def user_updates(trial1,trial2)
+    if @frame < 9
+        pre_last_frame_user_updates(trial1,trial2)
+
+      elsif @frame == 9
+        last_frame_user_updates(trial1,trial2)
+      else
+        "The Game is over buddy! Make a new Game"
+      end
+  end
+
+
+  def pre_last_frame_user_updates(trial1,trial2)
+    if trial1 == 10
+          update_score_board(trial1,0)
+          "STRIKE!"
+        elsif trial1 + trial2 == 10
+          update_score_board(trial1,trial2)
+          "SPARE! #{trial1} / #{trial2}"
+        else
+          update_score_board(trial1,trial2)
+          "#{trial1} / #{trial2}"
+        end
+      end
+  def last_frame_user_updates(trial1,trial2)
+    if trial1 == 10
+          update_score_board(trial1,0)
+          "STRIKE! | You have two more bonus bowl! Use the bonus method to enter your bonus pins"
+        elsif trial1 + trial2 == 10
+          update_score_board(trial1,trial2)  
+          "SPARE! #{trial1} / #{trial2} | You have one more bonus bowl! Use the bonus method to enter your bonus pins"
+        else
+          update_score_board(trial1,trial2)     
+          "#{trial1} / #{trial2} | Game Over"
+        end
+    end
 end
