@@ -17,8 +17,20 @@ class Bowl
     @score = 0
     @frame = 0
     @score_board = [[0,0,0]]
+    instructions
   end
 
+  def instructions
+    puts "Instructions: 
+      You have played bowling before! here are a couple methods to help you around this game!
+      To bowl - bowl(first_try, second_try)
+      To bowl bonus frames(10th frame) - bonus(first_try, second_try)
+      To check Score - score
+      To reset game - reset
+      To get instructions again - instructions
+    "
+  end
+  
   def bowl(trial1, trial2)
     if trial2 + trial1 <= 10 && trial1 >= 0 && trial2 >= 0
       user_updates(trial1,trial2)
@@ -96,7 +108,6 @@ class Bowl
     end
   end
 
-
   def pre_last_frame_user_updates(trial1,trial2)
     if trial1 == 10
       update_score_board(trial1,0)
@@ -123,3 +134,5 @@ class Bowl
     end
   end
 end
+
+Bowl.new
