@@ -12,14 +12,14 @@
 
 class Bowl
   attr_reader :score, :frame, :score_board
-# some
+
   def initialize
     @score = 0
     @frame = 0
     @score_board = [[0,0,0]]
     instructions
   end
-
+# sdfg
   def instructions
      "Instructions: 
       You have played bowling before! here are a couple methods to help you around this game!
