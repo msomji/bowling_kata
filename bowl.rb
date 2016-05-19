@@ -12,7 +12,7 @@
 
 class Bowl
   attr_reader :score, :frame, :score_board
-
+# some
   def initialize
     @score = 0
     @frame = 0
